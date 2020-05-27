@@ -28,15 +28,15 @@ class NavigatorExperimentApp extends StatelessWidget {
       home: StateNotifierProvider<AppStateController, bool>(
         create: (_) => AppStateController(),
         child: Consumer2<AppStateController, bool>(
-          builder: (ctx, ctrl, st, _) => Scaffold(
+          builder: (ctx, ctrl, state, _) => Scaffold(
             appBar: AppBar(
               title: Text('Example'),
             ),
             floatingActionButton: FloatingActionButton(
               child: Text('Toggle'),
-              onPressed: () => ctrl.updateState = !st,
+              onPressed: () => ctrl.updateState = !state,
             ),
-            body: st ? SubNavigator() : Center(child: Text('FALSE')),
+            body: state ? SubNavigator() : Center(child: Text('FALSE')),
           ),
         ),
       ),
@@ -83,7 +83,7 @@ class ChildPage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(Provider.of<String>(context)),
+              Text(context.select<String, String>((value) => value)),
               RaisedButton(
                 onPressed: () => Navigator.pushNamed(
                   context,
@@ -91,6 +91,13 @@ class ChildPage extends StatelessWidget {
                   arguments: depth,
                 ),
                 child: Text('Push'),
+              ),
+              //
+              // Control AppState from here
+              //
+              RaisedButton(
+                onPressed: () => context.read<AppStateController>().updateState = false,
+                child: Text('Bye'),
               ),
             ],
           ),
