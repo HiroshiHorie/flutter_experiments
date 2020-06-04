@@ -16,10 +16,18 @@ dependencies:
 
   provider:
   flutter_state_notifier:
+  flutter_portal:
+  freezed_annotation:
+
+  flutter_unx_shared:
+    path: ../flutter_unx_shared/
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  build_runner:
+  freezed:
 
 flutter:
   uses-material-design: true
