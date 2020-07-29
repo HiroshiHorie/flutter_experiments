@@ -15,12 +15,19 @@ dependencies:
     sdk: flutter
 
   provider:
+#  hooks_riverpod:
   flutter_state_notifier:
+  flutter_riverpod:
+#  flutter_hooks:
+
   flutter_portal:
   freezed_annotation:
 
-  flutter_unx_shared:
-    path: ../flutter_unx_shared/
+#  unx_common:
+#    path: ../unx_common/
+
+  unx_facebook:
+    path: ../unx_facebook/unx_facebook/
 
 dev_dependencies:
   flutter_test:
